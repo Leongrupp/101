@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Каталог партнёрских офферов</h1>
+<ul>
+{% for offer in page.get_children %}
+  <li><a href="{{ offer.url }}">{{ offer.title }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
