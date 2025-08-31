@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}All iPhone Models{% endblock %}
+{% block content %}
+<ul class="products">
+  {% for phone in iphones %}
+  <li>
+    <a href="{{ url_for('iphone_detail', slug=phone.slug) }}">{{ phone.name }} - ${{ phone.price }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -2,3 +2,5 @@ Django>=4.2
 wagtail>=5.0
 gunicorn
 psycopg2-binary
+
+Flask>=3.0
