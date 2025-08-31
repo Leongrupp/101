@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tapolku Game</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 2em; }
+        #tap { font-size: 2em; padding: 1em 2em; }
+    </style>
+    <script>
+        let score = 0;
+        let timeLeft = 30;
+        let timer;
+
+        function tap() {
+            score++;
+            document.getElementById('score').textContent = score;
+        }
+
+        function countdown() {
+            timeLeft--;
+            document.getElementById('time').textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                document.getElementById('tap').disabled = true;
+                if (window.Telegram && Telegram.WebApp) {
+                    Telegram.WebApp.sendData(String(score));
+                }
+            }
+        }
+
+        window.onload = function() {
+            timer = setInterval(countdown, 1000);
+        }
+    </script>
+</head>
+<body>
+    <h1>Tapolku</h1>
+    <p>Score: <span id="score">0</span></p>
+    <p>Time left: <span id="time">30</span> seconds</p>
+    <button id="tap" onclick="tap()">Tap!</button>
+</body>
+</html>

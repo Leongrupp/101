@@ -3,5 +3,6 @@ from wagtail import urls as wagtail_urls
 
 urlpatterns = [
     path('admin/', include('wagtail.admin.urls')),
+    path('game/', include('telegram_game.urls')),
     path('', include(wagtail_urls)),
 ]
