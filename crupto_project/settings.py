@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'catalog',
     'blog',
     'finance',
+    'telegram_game',
 ]
 
 MIDDLEWARE = [
